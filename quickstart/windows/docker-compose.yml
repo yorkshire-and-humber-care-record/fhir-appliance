@@ -43,9 +43,9 @@ services:
     depends_on:
       - fhir-appliance-db
     volumes:
-      # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ./ssl if securing the endpoint
+      # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ssl if securing the endpoint
       - ../shared/ssl:/app/ssl
-      # If using public key based JSON web token verification then copy public key of CA to ./keys folder (see environment file for information)
+      # If using public key based JSON web token verification then copy public key of CA to keys folder (see environment file for information)
       - ../shared/keys:/app/keys
     networks:
       - default
