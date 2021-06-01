@@ -75,22 +75,27 @@ Read the remainder of this documentation to get up and running.
 
 ## Notes on configuring your FHIR Appliance to use HTTPS
 
+> Example self-signed certificates are provided. The certificate, private key and root ca cannot not be used in production.
+
 ### One way TLS
 
-If you wish to expose a FHIR API over HTTPS then you will need a certificate, private key and passphrase (if you used one). Ideally your certificate should be issued by certificate authority, but, for development purposes, you can use a [self-signed](docs/self-signed-cert.md) certificate.
+If you wish to expose a FHIR API over HTTPS then you will need a certificate, private key and passphrase (if you used one). Ideally your certificate should be issued by certificate authority, but, for development purposes, you can use a [self-signed](docs/self-signed-cert.md) certificate. As above, for development purposes, example certificates are provided.
 
 ### Mutual TLS
 
-If you require mutual TLS client authentication then you will need the CA root certificate of your server's certificate issuer. For development purposes, you can create your own root CA certificate and private key to sign your own certificates. Any clients using a mutal TLS enabled endpoint will need to send a certificate signed by the same CA in any requests to your FHIR Appliance.
+If you require mutual TLS client authentication then you will need the CA root certificate of your server's certificate issuer. For development purposes, you can create your own root CA certificate and private key to sign your own certificates. Any clients using a mutal TLS enabled endpoint will need to send a certificate signed by the same CA in any requests to your FHIR Appliance. 
+
+### Host file (Quickstart)
+
+So that the common name for the certificates resolve locally you will need to add the following entries to your hosts file:
+
+`127.0.0.1 appliance.development.yhcr.nhs.uk`
 
 ## Database Initialisation
 
-If you wish to use database servers within your own network or the cloud then it is necessary to create the database, users, roles and logins.
+If you wish to use database servers within your own network or the cloud then it is necessary to first create the database, users, roles and logins.
 
-Please follow these guides to initialise the fhir appliance database according to your platform (Postgres or Microsoft SQL Server):
-
-[]()
-[]()
+This [guide](docs/database-initalisation.md) provides the SQL scripts for both Postgres and Microsoft SQL Server.
 
 ### Setup and configuration guides
 

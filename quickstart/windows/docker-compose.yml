@@ -1,110 +1,54 @@
 version: "3.2"
 
-# Quickstart demo of FHIR appliance
+# FHIR Appliance Quickstart for Windows containers
+
+version: "3.2"
 
 services:
-  localdb:
-    image: postgres
-    container_name: localdb
-    restart: always
-    environment:
-      - POSTGRES_DB=fhirstore
-      - POSTGRES_USER=iamonfhir
-    env_file:
-      - ./postgres/db.env
-    volumes:
-      - ./pg_init.sql:/docker-entrypoint-initdb.d/init.sql
-      - pgdata:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-    networks:
-      - internal
 
-  localdb-client:
-    image: dpage/pgadmin4
-    restart: always
-    container_name: localdb-client
-    env_file:
-      - ./postgres/dbclient.env
-    ports:
-      - 54321:80
-    depends_on:
-      - localdb
-    networks:
-      - internal
-      - default
-
-  fhir-open:
-    image: synaneticsltd/synfhir-store:linux-latest
-    restart: always
-    container_name: fhir-open
+  # https://hub.docker.com/r/microsoft/mssql-server-windows-express/
+  fhir-appliance-db:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    container_name: fhir-appliance-db
+    hostname: fhir-appliance-db
     environment:
-      - NAMESPACE=synfhir-store
+        - ACCEPT_EULA: "Y"
+        - SA_PASSWORD: Pa55w0rd1! # Change as required (this is the SA password for the containerised database server)
+    volumes: 
+        - mssqldata:/var/opt/mssql
+    ports:
+        - 1433:1433
+
+  fhir-appliance:
+    image: synaneticsltd/synfhir-store:windows-2019-beta-v3.1.0
+    restart: always
+    container_name: fhir-appliance
+    environment:
+      # Settings required by moleculer (not configurable)
       - METRICSENABLE=false
-      - PORT=3000
+      - NAMESPACE=fhir-appliance
+      - NODE_ENV=development
       - SERVICEDIR=services
+      - SERVICES=**/services.js
     env_file:
-      - ./fhir-open.env
+      - .env
     ports:
-      - 3000:3000
-    depends_on:
-      - localdb
-    networks:
-      - internal
-      - default
-
-
-  fhir-secured:
-    image: synaneticsltd/synfhir-store:linux-latest
-    restart: always
-    container_name: fhir-secured
-    environment:
-      - NAMESPACE=synfhir-store
-      - METRICSENABLE=false
-      - PORT=3001
-      - SERVICEDIR=services
-    env_file:
-      - ./fhir-secured.env
-    depends_on:
-      - localdb
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.rtr-fhir-secured.rule=PathPrefix(`/fhir`)"
-      - "traefik.http.routers.rtr-fhir-secured.entrypoints=web-secure"
-      - "traefik.http.routers.rtr-fhir-secured.tls=true"
-      - "traefik.http.services.svc-fhir-secured.loadbalancer.server.port=3001"
-    networks:
-      - internal
-
-  traefik:
-    image: traefik:v2.2
-    container_name: traefik
-    restart: always
-    command:
-      #- "--log.level=DEBUG"
-      - "--api.insecure=true"
-      - "--entrypoints.web-secure.address=:443"
-      # This enables it to pick up the routers and services from the docker labels above
-      - "--providers.docker=true"
-      - "--providers.docker.exposedbydefault=false"
-      - "--providers.docker.watch=true"
-      # This file overrides the default TLS settings, so we can configure our own certificates
-      - "--providers.file.filename=/etc/traefik/dynamic_conf.yaml"
-      - "--providers.file.watch=true"
-    ports:
+      # Public endpoint (https)
+      # Map 443 of the host to 443 in the container if using SSL
       - 443:443
-      - 8080:8080
+      # Integration endpoint (http)
+      - 8300:8300
     depends_on:
-      -  fhir-secured
+      - fhir-appliance-db
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik/:/etc/traefik
+      # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ./ssl if securing the endpoint
+      - ../shared/ssl:/app/ssl
+      # If using public key based JSON web token verification then copy public key of CA to ./keys folder (see environment file for information)
+      - ../shared/keys:/app/keys
     networks:
-      - internal
       - default
-
-networks:
-  internal:
 
 volumes:
-    pgdata:
+  mssqldata:
