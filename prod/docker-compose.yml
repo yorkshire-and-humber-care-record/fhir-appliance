@@ -1,0 +1,38 @@
+version: "3.2"
+
+# Deployment of a FHIR appliance
+
+services:
+  fhir-appliance:
+    image: synaneticsltd/synfhir-store:linux-beta-v3.1.0
+    # For windows 2019
+    # image: synaneticsltd/synfhir-store:windows-2019-beta-v3.1.0
+    restart: always
+    container_name: fhir-appliance
+    environment:
+      # Settings required by moleculer (not configurable)
+      - METRICSENABLE=false
+      - NAMESPACE=fhir-appliance
+      - NODE_ENV=production
+      - SERVICEDIR=services
+      - SERVICES=**/services.js
+    env_file:
+      - ./.env
+    ports:
+      # Public endpoint (https)
+      # Map 443 of the host to 443 in the container if using SSL
+      - 443:443
+      # Integration endpoint (https)
+      - 8443:8443
+      # Public endpoint (http - not recommended for production)
+      # Map 443 of the host to 443 in the container if using SSL
+      #- 3000:3000
+      # Integration endpoint (http)
+      #- 8300:8300
+    volumes:
+      # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ./ssl if securing the endpoint
+      - ./ssl:/app/ssl
+      # If using public key based JSON web token verification then copy public key of CA to ./keys folder (see environment file for information)
+      - ./keys:/app/keys
+    networks:
+      - default

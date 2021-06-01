@@ -1,0 +1,110 @@
+version: "3.2"
+
+# Quickstart demo of FHIR appliance
+
+services:
+  localdb:
+    image: postgres
+    container_name: localdb
+    restart: always
+    environment:
+      - POSTGRES_DB=fhirstore
+      - POSTGRES_USER=iamonfhir
+    env_file:
+      - ./postgres/db.env
+    volumes:
+      - ./pg_init.sql:/docker-entrypoint-initdb.d/init.sql
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - internal
+
+  localdb-client:
+    image: dpage/pgadmin4
+    restart: always
+    container_name: localdb-client
+    env_file:
+      - ./postgres/dbclient.env
+    ports:
+      - 54321:80
+    depends_on:
+      - localdb
+    networks:
+      - internal
+      - default
+
+  fhir-open:
+    image: synaneticsltd/synfhir-store:linux-latest
+    restart: always
+    container_name: fhir-open
+    environment:
+      - NAMESPACE=synfhir-store
+      - METRICSENABLE=false
+      - PORT=3000
+      - SERVICEDIR=services
+    env_file:
+      - ./fhir-open.env
+    ports:
+      - 3000:3000
+    depends_on:
+      - localdb
+    networks:
+      - internal
+      - default
+
+
+  fhir-secured:
+    image: synaneticsltd/synfhir-store:linux-latest
+    restart: always
+    container_name: fhir-secured
+    environment:
+      - NAMESPACE=synfhir-store
+      - METRICSENABLE=false
+      - PORT=3001
+      - SERVICEDIR=services
+    env_file:
+      - ./fhir-secured.env
+    depends_on:
+      - localdb
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rtr-fhir-secured.rule=PathPrefix(`/fhir`)"
+      - "traefik.http.routers.rtr-fhir-secured.entrypoints=web-secure"
+      - "traefik.http.routers.rtr-fhir-secured.tls=true"
+      - "traefik.http.services.svc-fhir-secured.loadbalancer.server.port=3001"
+    networks:
+      - internal
+
+  traefik:
+    image: traefik:v2.2
+    container_name: traefik
+    restart: always
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--entrypoints.web-secure.address=:443"
+      # This enables it to pick up the routers and services from the docker labels above
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.watch=true"
+      # This file overrides the default TLS settings, so we can configure our own certificates
+      - "--providers.file.filename=/etc/traefik/dynamic_conf.yaml"
+      - "--providers.file.watch=true"
+    ports:
+      - 443:443
+      - 8080:8080
+    depends_on:
+      -  fhir-secured
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik/:/etc/traefik
+    networks:
+      - internal
+      - default
+
+networks:
+  internal:
+
+volumes:
+    pgdata:
