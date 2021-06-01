@@ -15,7 +15,7 @@ services:
       - NAMESPACE=fhir-appliance
       - NODE_ENV=production
       - SERVICEDIR=services
-      - SERVICES=**/services.js
+      - SERVICES=**/*.service.js
     env_file:
       - ./.env
     ports:

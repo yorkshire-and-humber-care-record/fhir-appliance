@@ -2,7 +2,7 @@ version: "3.2"
 
 # FHIR Appliance Quickstart with Linux containers
 
-# Change the passwords are required - you will need to reflect password changes made to the fhir-appliance-db container in the database connection string (line 44) of the .env file
+# Change the passwords as required - you will need to reflect password changes made to the fhir-appliance-db container in the database connection string (line 44) of the .env file
 
 services:
   fhir-appliance-db:
@@ -10,9 +10,9 @@ services:
     container_name: fhir-appliance-db
     restart: always
     environment:
-      - POSTGRES_DB: fhirstore
-      - POSTGRES_USER: iamonfhir
-      - POSTGRES_PASSWORD: Pa55w0rd1! # you will need to reflect password changes made here in the database connection string (line 44) of the .env file
+      - POSTGRES_DB=fhirstore
+      - POSTGRES_USER=iamonfhir
+      - POSTGRES_PASSWORD=Pa55w0rd1! # you will need to reflect password changes made here in the database connection string (line 44) of the .env file
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
@@ -29,8 +29,8 @@ services:
     restart: always
     container_name: fhir-appliance-db-client
     environment:
-      - PGADMIN_DEFAULT_EMAIL: support@myorg.org
-      - PGADMIN_DEFAULT_PASSWORD: Pa55w0rd1!
+      - PGADMIN_DEFAULT_EMAIL=support@myorg.org
+      - PGADMIN_DEFAULT_PASSWORD=Pa55w0rd1!
     ports:
       - 54321:80
     depends_on:
@@ -48,7 +48,7 @@ services:
       - NAMESPACE=fhir-appliance
       - NODE_ENV=development
       - SERVICEDIR=services
-      - SERVICES=**/services.js
+      - SERVICES=**/*.service.js
     env_file:
       - .env
     ports:
