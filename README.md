@@ -1,4 +1,4 @@
-# # Yorkshire and Humber FHIR Appliance - Create a self-signed certificate using OpenSSL
+# Yorkshire and Humber FHIR Appliance
 Web: [Yorkshire and Humber Care Record](https://yhcr.org)  
 Twitter: [@YHCareRecord](https://twitter.com/YHCareRecord/)
 
