@@ -2,24 +2,20 @@ version: "3.2"
 
 # FHIR Appliance Quickstart for Windows containers
 
-version: "3.2"
-
 services:
-
   # https://hub.docker.com/r/microsoft/mssql-server-windows-express/
   fhir-appliance-db:
-    build:
-        context: .
-        dockerfile: Dockerfile
+    image: microsoft/mssql-server-windows-express
     container_name: fhir-appliance-db
-    hostname: fhir-appliance-db
+    hostname: localhost
     environment:
-        - ACCEPT_EULA="Y"
-        - SA_PASSWORD=Pa55w0rd1! # Change as required (this is the SA password for the containerised database server)
-    volumes: 
-        - mssqldata:/var/opt/mssql
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Pa55w0rd1! # Change as required (changes here need to be reflected in line 44 of .env)
+      - ATTACH_DBS=[{"dbName":"fhirstore","dbFiles":["C:\\Data\\fhirstore.mdf","C:\\Data\\fhirstore_log.ldf"]}]
     ports:
-        - 1433:1433
+      - 1433:1433
+    volumes:
+      - C:\\repos\\docker_windows\\fhir-appliance\quickstart\windows\data\:C:\Data
 
   fhir-appliance:
     image: synaneticsltd/synfhir-store:windows-2019-beta-v3.1.0
@@ -33,7 +29,7 @@ services:
       - SERVICEDIR=services
       - SERVICES=**/*.service.js
     env_file:
-      - ./.env
+      - .env
     ports:
       # Public endpoint (https)
       # Map 443 of the host to 443 in the container if using SSL
@@ -44,11 +40,8 @@ services:
       - fhir-appliance-db
     volumes:
       # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ssl if securing the endpoint
-      - ../shared/ssl:/app/ssl
+      - ..\shared\ssl:C:\app\ssl
       # If using public key based JSON web token verification then copy public key of CA to keys folder (see environment file for information)
-      - ../shared/keys:/app/keys
+      - ..\shared\keys:C:\app\keys
     networks:
       - default
-
-volumes:
-  mssqldata:
