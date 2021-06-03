@@ -6,6 +6,12 @@ The FHIR Appliance supports Postgres and Microsoft SQL Server platforms.
 
 ---
 
+## Database Initialisation
+
+If you wish to use database servers within your own network or the cloud then it is necessary to first create the database, users, roles and logins.
+
+This guide provides the SQL scripts for both Postgres and Microsoft SQL Server.
+
 ### Configure the database
 
 Connecting the FHIR Appliance to an external database server is a two step process:
