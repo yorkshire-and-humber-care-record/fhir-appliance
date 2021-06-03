@@ -47,7 +47,7 @@ A public git repository containing the sourcecode will be available soon but for
 ### Install guides
 The following steps describe how to get the current version of the FHIR Appliance up and running within your local environment. 
 
-[01 - Overview](/docs/install-guide/FHIR-Appliance-Install-01-Overview-v2.md)
+[01 - Overview](/docs/install-guide/FHIR-Appliance-Install-01-Overview.md)
 
 [02 - Server Preparation](docs/install-guide/FHIR-Appliance-Install-02-Server-Preparation-v2.docx)
 
