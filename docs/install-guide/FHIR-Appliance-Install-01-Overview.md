@@ -1,8 +1,8 @@
-**FHIR Appliance Installation**
+# FHIR Appliance Installation
 
-**01 - Overview**
+# 01 - Overview
 
-# Table of Contents
+**Table of Contents**
 
 [1 Introduction](#introduction)
 
@@ -26,8 +26,7 @@
 
 [3 Assumed Skillsets](#assumed-skillsets)
 
-**  
-**
+
 
 # Introduction
 
