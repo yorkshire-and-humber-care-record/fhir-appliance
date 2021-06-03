@@ -154,7 +154,7 @@ before, and it is recommended to work through the process in sequence
 
 # Technical Overview 
 
-![](media/01/tech-overview.png){width="4.144949693788276in" height="4.15in"}
+![](media/01/tech-overview.png){:width="4.144949693788276in" height="4.15in"}
 
 The diagram provides a very high-level conceptual overview of the FHIR
 Appliance architecture and the technologies involved. Key points to
