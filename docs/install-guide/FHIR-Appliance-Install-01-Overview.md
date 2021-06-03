@@ -142,7 +142,7 @@ set useful.
 
 ## Document Map
 
-<img src="media/01/doc-map.png width="6.268055555555556in"
+<img src="media/01/doc-map.png" width="6.268055555555556in"
 height="2.292361111111111in">
 
 This document is the first in a set which walks through the entire
