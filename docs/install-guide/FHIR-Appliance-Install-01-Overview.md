@@ -142,8 +142,8 @@ set useful.
 
 ## Document Map
 
-![](media/01/doc-map.png){width="6.268055555555556in"
-height="2.292361111111111in"}
+<img src="media/01/doc-map.png width="6.268055555555556in"
+height="2.292361111111111in">
 
 This document is the first in a set which walks through the entire
 process of installing the FHIR Appliance and connecting to the messaging
