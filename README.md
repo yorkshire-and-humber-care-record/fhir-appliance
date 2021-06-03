@@ -53,7 +53,7 @@ The following steps describe how to get the current version of the FHIR Applianc
 
 [03 - Quickstart Install](docs/install-guide/FHIR-Appliance-Install-03-Quickstart-Install-v2.docx)
 
-[04 - Quickstart Tour](docs/install-guide/FHIR-Appliance-Install-04-Quickstart-Demo-v2.docx)
+[04 - Quickstart Demo](docs/install-guide/FHIR-Appliance-Install-04-Quickstart-Demo-v2.docx)
 
 [05 - Production Install](docs/install-guide/FHIR-Appliance-Install-05-Production-Install-v2.docx)
 
