@@ -24,4 +24,4 @@ From the command line (Windows users should ensure that they are running either 
 
 ### Where next?
 
-[Home](../README.md)
+[Home](../../README.md)
