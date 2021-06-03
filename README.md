@@ -58,3 +58,9 @@ The following steps describe how to get the current version of the FHIR Applianc
 [05 - Production Install](docs/install-guide/FHIR-Appliance-Install-05-Production-Install-v2.docx)
 
 [99 - 3rd Party Technologies](docs/install-guide/FHIR-Appliance-Install-99-3rd-Party-Technologies-v2.docx)
+
+### Reference guides
+[Configuring TLS](docs/reference/configure-tls.md)
+[Database initialisation](docs/reference/database-initalisation.md)
+[Creating self-signed certificates](docs/reference/self-signed-cert.md)
+
