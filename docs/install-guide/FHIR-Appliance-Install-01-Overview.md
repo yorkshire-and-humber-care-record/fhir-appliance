@@ -142,7 +142,7 @@ set useful.
 
 ## Document Map
 
-![](media/image2.emf){width="6.268055555555556in"
+![](media/01/doc-map.png){width="6.268055555555556in"
 height="2.292361111111111in"}
 
 This document is the first in a set which walks through the entire
@@ -154,7 +154,7 @@ before, and it is recommended to work through the process in sequence
 
 # Technical Overview 
 
-![](media/image3.emf){width="4.144949693788276in" height="4.15in"}
+![](media/01/tech-overview.png){width="4.144949693788276in" height="4.15in"}
 
 The diagram provides a very high-level conceptual overview of the FHIR
 Appliance architecture and the technologies involved. Key points to
