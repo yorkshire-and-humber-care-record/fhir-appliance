@@ -61,6 +61,9 @@ The following steps describe how to get the current version of the FHIR Applianc
 
 ### Reference guides
 [Configuring TLS](docs/reference/configure-tls.md)
+
 [Database initialisation](docs/reference/database-initalisation.md)
+
 [Creating self-signed certificates](docs/reference/self-signed-cert.md)
+
 
