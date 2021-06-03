@@ -47,14 +47,14 @@ A public git repository containing the sourcecode will be available soon but for
 ### Install guides
 The following steps describe how to get the current version of the FHIR Appliance up and running within your local environment. 
 
-[01 - Overview](/docs/install-guide/YHCR-FHIR-Proxy-Install-01-Overview-v2.docx)
+[01 - Overview](/docs/install-guide/FHIR-Appliance-Install-01-Overview-v2.docx)
 
-[02 - Server Preparation](docs/install-guide/YHCR-FHIR-Proxy-Install-02-Server-Preparation-v2.docx)
+[02 - Server Preparation](docs/install-guide/FHIR-Appliance-Install-02-Server-Preparation-v2.docx)
 
-[03 - Quickstart Install](docs/install-guide/YHCR-FHIR-Proxy-Install-03-Quickstart-Install-v2.docx)
+[03 - Quickstart Install](docs/install-guide/FHIR-Appliance-Install-03-Quickstart-Install-v2.docx)
 
-[04 - Quickstart Tour](docs/install-guide/YHCR-FHIR-Proxy-Install-04-Quickstart-Tour-v2.docx)
+[04 - Quickstart Tour](docs/install-guide/FHIR-Appliance-Install-04-Quickstart-Tour-v2.docx)
 
-[05 - Production Install](docs/install-guide/YHCR-FHIR-Proxy-Install-05-Production-Install-v2.docx)
+[05 - Production Install](docs/install-guide/YFHIR-Appliance-Install-05-Production-Install-v2.docx)
 
-[99 - 3rd Party Technologies](docs/install-guide/YHCR-FHIR-Proxy-Install-99-3rd-Party-Technologies-v1.docx)
+[99 - 3rd Party Technologies](docs/install-guide/FHIR-Appliance-Install-99-3rd-Party-Technologies-v2.docx)
