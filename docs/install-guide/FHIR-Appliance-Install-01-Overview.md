@@ -114,7 +114,7 @@ set useful.
 
 ## Document Map
 
-<img src="media/image2.emf" style="width:6.26806in;height:2.29236in" />
+<img src="media/01/doc-map.png" style="width:6.26806in;height:2.29236in" />
 
 This document is the first in a set which walks through the entire
 process of installing the FHIR Appliance and connecting to the messaging
@@ -126,7 +126,7 @@ sequence
 
 # Technical Overview 
 
-<img src="media/image3.emf" style="width:4.14495in;height:4.15in" />
+<img src="media/01/tech-overview.png" style="width:4.14495in;height:4.15in" />
 
 The diagram provides a very high-level conceptual overview of the FHIR
 Appliance architecture and the technologies involved. Key points to
