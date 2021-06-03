@@ -153,11 +153,11 @@ requirement is relatively basic and consists of two simple schemas which
 allow for:
 
 -   ***Persistence of FHIR Resources*** – FHIR Resources are formatted
-    > into JSON strings and loaded in the database ready to be served. A
-    > single table handles all FHIR Resource types.
+    into JSON strings and loaded in the database ready to be served. A
+    single table handles all FHIR Resource types.
 
 -   ***Audit*** – The FHIR Appliance persists comprehensive audit
-    > records - in full compliance with audit requirements
+    records - in full compliance with audit requirements
 
 There are currently two supported database options:
 
@@ -178,15 +178,15 @@ the FHIR server will be protected behind a hardened web proxy. This
 proxy serves several purposes including:
 
 -   ***Network Isolation*** – providing a layer of network isolation
-    > between the FHIR endpoint itself and external networks
+    between the FHIR endpoint itself and external networks
 
 -   ***SSL and Certificate Management*** – managing keys and
-    > certificates and implementing TLS Mutual Authentication for
-    > connections to the central infrastructure. These certificates are
-    > issued as part of the Onboarding Process.
+    certificates and implementing TLS Mutual Authentication for
+    connections to the central infrastructure. These certificates are
+    issued as part of the Onboarding Process.
 
 -   ***Load Balancing*** – proving load balancing for a resilient
-    > deployment
+    deployment
 
 There are many Web Proxy technologies available and we do not prescribe
 any specific one – it is assumed that your organisation will already
