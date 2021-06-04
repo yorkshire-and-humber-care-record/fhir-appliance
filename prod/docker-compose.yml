@@ -24,7 +24,7 @@ services:
       - 443:443
       # Integration endpoint (https)
       #- 8443:8443
-      # Public endpoint (http - not recommended for production)
+      # Public endpoint (http - not recommended for production - UNLESS this is an internal link and fronted by a 3rd party web proxy which provides SSL termination)
       #- 3000:3000
       # Integration endpoint (http)
       - 8300:8300
