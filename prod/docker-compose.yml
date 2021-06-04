@@ -23,23 +23,22 @@ services:
       # Map 443 of the host to 443 in the container if using SSL
       - 443:443
       # Integration endpoint (https)
-      - 8443:8443
+      #- 8443:8443
       # Public endpoint (http - not recommended for production)
-      # Map 443 of the host to 443 in the container if using SSL
       #- 3000:3000
       # Integration endpoint (http)
-      #- 8300:8300
+      - 8300:8300
     volumes:
       # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ./ssl if securing the endpoint
       # For windows server/windows containers use
       # - ssl:C:/app/ssl
       - ./ssl:/app/ssl
-      # If using public key based JSON web token verification then copy public key of CA to ./keys folder (see environment file for information)
+      # If using public key based JSON web token verification then copy public key of CA to ./jwt folder (see environment file for information)
       - ./jwt:/app/jwt
       # For windows server/windows containers use
       # - jwt:C:/app/jwt
       # If publishing patient registrations to regional PIX service then copy your client certificates and keys to this folder
-      - ../shared/pix:/app/pix
+      - ./pix:/app/pix
       # For windows server/windows containers use
       # - pix:C:/app/pix
     networks:
