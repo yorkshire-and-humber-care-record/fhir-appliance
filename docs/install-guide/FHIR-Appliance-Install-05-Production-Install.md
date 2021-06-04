@@ -1,6 +1,6 @@
-#FHIR Appliance Installation
+# FHIR Appliance Installation
 
-#05 – Production Install
+# 05 – Production Install
 
 **Table of Contents**
 
@@ -251,6 +251,7 @@ detailed production installation of the FHIR Appliance component.
     Server Preparation*** for more details, including server
     prerequisites and advice on installing docker
 
+
 2.  **Copy on production configuration**
 
 -   In a browser go to
@@ -262,6 +263,7 @@ detailed production installation of the FHIR Appliance component.
 >
 > Once you have a copy of the files downloaded then look inside the
 > “prod” folder
+
 
 3.  **Install other servers and components**
 
@@ -289,6 +291,7 @@ detailed production installation of the FHIR Appliance component.
 >
 > See also “***FHIR Appliance Install 99 - 3rd Party Technologies***”
 > for further tips on these tasks
+
 
 4.  **Review configuration files in the “prod” folder**
 
@@ -321,6 +324,7 @@ detailed production installation of the FHIR Appliance component.
     -   See also ***FHIR Appliance Install 03 - Quickstart Install***
         for further details
 
+
 5.  **Check internal firewalls**
 
 -   You will need to make sure that any internal and/or server firewalls
@@ -328,6 +332,7 @@ detailed production installation of the FHIR Appliance component.
     Appliance ports, and for the FHIR Appliance to connect to the
     database. (For example Windows Firewall will block all of these by
     default)
+
 
 6.  **Run up the system**
 
@@ -339,6 +344,7 @@ detailed production installation of the FHIR Appliance component.
 
     -   As usual, the first time will be slow as it downloads all of the
         docker images. Subsequent runs will be much faster
+
 
 7.  **Smoke Test**
 
@@ -362,6 +368,7 @@ detailed production installation of the FHIR Appliance component.
 
 -   See ***FHIR Appliance Install 03 - Quickstart Install*** for more
     details of initial testing and troubleshooting
+
 
 8.  **Configure Autostart**
 
@@ -407,8 +414,6 @@ The FHIR Appliance needs to autostart when the server reboots.
 
 <!-- -->
 
-1.  
-2.  
 
 <!-- -->
 
