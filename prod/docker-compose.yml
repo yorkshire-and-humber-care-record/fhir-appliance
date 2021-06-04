@@ -31,8 +31,16 @@ services:
       #- 8300:8300
     volumes:
       # Copy .pem formatted SSL certificates: certificate, private key, passphrase (optional) and, if using mutal tls, root CA certificate to ./ssl if securing the endpoint
+      # For windows server/windows containers use
+      # - ssl:C:/app/ssl
       - ./ssl:/app/ssl
       # If using public key based JSON web token verification then copy public key of CA to ./keys folder (see environment file for information)
-      - ./keys:/app/keys
+      - ./jwt:/app/jwt
+      # For windows server/windows containers use
+      # - jwt:C:/app/jwt
+      # If publishing patient registrations to regional PIX service then copy your client certificates and keys to this folder
+      - ../shared/pix:/app/pix
+      # For windows server/windows containers use
+      # - pix:C:/app/pix
     networks:
       - default
