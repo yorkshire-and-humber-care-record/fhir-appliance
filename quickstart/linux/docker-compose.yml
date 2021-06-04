@@ -2,7 +2,7 @@ version: "3.2"
 
 # FHIR Appliance Quickstart with Linux containers
 
-# Change the passwords as required - you will need to reflect password changes made to the fhir-appliance-db container in the database connection string (line 44) of the .env file
+# Change the passwords as required - you will need to reflect password changes made to the fhir-appliance-db container in the database connection string of the .env file
 
 services:
   fhir-appliance-db:
