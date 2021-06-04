@@ -1,6 +1,6 @@
-#FHIR Appliance Installation
+# FHIR Appliance Installation
 
-#99 – 3rd Party Technologies
+# 99 – 3rd Party Technologies
 
 **Table of Contents**
 
