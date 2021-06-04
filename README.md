@@ -13,6 +13,22 @@ The FHIR Appliance has been developed in accordance to a series of [technical pa
 
 The FHIR Appliance will keep evolving in step with both the LHCRE, YHCR and other NHS regional shared care record programmes. The overall aim, however, is that the server will provide an out of the box, open source solution to health and social care organisations who require the ability to share data using FHIR.
 
+
+# Key Features
+
+ - A complete implementation of a FHIR Server and FHIR Store (fully compliant with FHIR STU 3)
+ - Support for sychronous queries, but also for asynchronous bulk extracts and event-driven subscriptions
+ - Flexible endpoint configuration
+ > - Possible to configure dual endpoints for external vs internal access
+ > - Entirely configurable choice of listener ports
+ > - Options for http or https (including mutual authentication)
+ > - Options for message authentication (jwt, api-key, none)
+ - Audit log of all activities (available as FHIR AuditEvent resources)
+ - Option to automate registration of patients with a regional PIX server
+ - Runs on Linux or Windows Server 2019, using either Postgres or MSSQL database
+ - Dockerised deployment for ease of installation
+
+
 # Technical Overview
 
 The FHIR Appliance has been developed using a stack of open source software and health care interoperability standards, namely:
