@@ -65,15 +65,15 @@ The following steps describe how to get the current version of the FHIR Applianc
 
 [01 - Overview](/docs/install-guide/FHIR-Appliance-Install-01-Overview.md)
 
-[02 - Server Preparation](docs/install-guide/FHIR-Appliance-Install-02-Server-Preparation-v2.docx)
+[02 - Server Preparation](docs/install-guide/FHIR-Appliance-Install-02-Server-Preparation.md)
 
-[03 - Quickstart Install](docs/install-guide/FHIR-Appliance-Install-03-Quickstart-Install-v2.docx)
+[03 - Quickstart Install](docs/install-guide/FHIR-Appliance-Install-03-Quickstart-Install.md)
 
-[04 - Quickstart Demo](docs/install-guide/FHIR-Appliance-Install-04-Quickstart-Demo-v2.docx)
+[04 - Quickstart Demo](docs/install-guide/FHIR-Appliance-Install-04-Quickstart-Demo.md)
 
-[05 - Production Install](docs/install-guide/FHIR-Appliance-Install-05-Production-Install-v2.docx)
+[05 - Production Install](docs/install-guide/FHIR-Appliance-Install-05-Production-Install.md)
 
-[99 - 3rd Party Technologies](docs/install-guide/FHIR-Appliance-Install-99-3rd-Party-Technologies-v2.docx)
+[99 - 3rd Party Technologies](docs/install-guide/FHIR-Appliance-Install-99-3rd-Party-Technologies/md)
 
 ### Reference guides
 [Configuring TLS](docs/reference/configure-tls.md)
