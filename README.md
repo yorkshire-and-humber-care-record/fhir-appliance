@@ -73,7 +73,7 @@ The following steps describe how to get the current version of the FHIR Applianc
 
 [05 - Production Install](docs/install-guide/FHIR-Appliance-Install-05-Production-Install.md)
 
-[99 - 3rd Party Technologies](docs/install-guide/FHIR-Appliance-Install-99-3rd-Party-Technologies/md)
+[99 - 3rd Party Technologies](docs/install-guide/FHIR-Appliance-Install-99-3rd-Party-Technologies.md)
 
 ### Reference guides
 [Configuring TLS](docs/reference/configure-tls.md)
