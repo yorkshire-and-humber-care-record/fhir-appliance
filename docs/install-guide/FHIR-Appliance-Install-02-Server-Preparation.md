@@ -1,6 +1,6 @@
-#FHIR Appliance Installation
+# FHIR Appliance Installation
 
-#02 – Server Preparation
+# 02 – Server Preparation
 
 **Table of Contents**
 
