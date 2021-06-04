@@ -1,6 +1,6 @@
-#FHIR Appliance Installation
+# FHIR Appliance Installation
 
-#04 – Quickstart Demo
+# 04 – Quickstart Demo
 
 **Table of Contents**
 
