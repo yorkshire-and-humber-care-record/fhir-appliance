@@ -1,6 +1,6 @@
-#FHIR Appliance Installation
+# FHIR Appliance Installation
 
-#03 – Quickstart Install
+# 03 – Quickstart Install
 
 **Table of Contents**
 
