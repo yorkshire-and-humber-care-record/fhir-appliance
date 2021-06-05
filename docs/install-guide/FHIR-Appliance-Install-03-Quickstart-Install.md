@@ -140,7 +140,7 @@ Resources and the Audit trail.
 -   The database listens on port 5432.
 
 -   The pgadmin client is also included as a database administration
-    tool. See <https://www.pgadmin.org/>. It is exposed on port 80.
+    tool. See <https://www.pgadmin.org/>. It is exposed on port 54321.
 
 **On Windows Server:**
 
@@ -513,7 +513,7 @@ is not really necessary).
 is something we will tackle as an exercise in its own right later***
 
 4.  ***For Linux quickstart only - In a browser navigate to
-    <http://localhost:80>***
+    <http://localhost:54321>***
 
 You should see a logon screen for the database client
 
