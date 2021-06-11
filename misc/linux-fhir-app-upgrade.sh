@@ -1,4 +1,4 @@
-######################################################################################
+#################################################################################################
 # To use this script, first:
 # 
 # cd <fhir-appliance-repo-directory>/misc
@@ -11,10 +11,16 @@
 #
 # Quckstart/Linux
 # ./linux-fhir-app-upgrade.sh -t qs
-######################################################################################
+#
+# Optional
+# -d detached to launch the updated fhir-appliance in detached mode (docker-compose up -d), e.g.:
+#
+# ./linux-fhir-app-upgrade.sh -t qs -d detached
+#
+#################################################################################################
 #!/bin/bash
 
-usage() { echo "Usage: $0 [-t <string> - prod for production or qs for linux quickstart] [-d <string>, optional - restart the appliance in detached mode (docker-compose up -d) by setting -d detached]" 1>&2; exit 1; }
+usage() { echo "Usage: $0 [-t <string> - prod for production or qs for linux quickstart] [-d <string>, optional - restart the updated appliance in detached mode (docker-compose up -d) by setting -d detached]" 1>&2; exit 1; }
 
 while getopts ":t:d:" o; do
     case "${o}" in
@@ -52,5 +58,5 @@ else
     docker-compose up --no-deps fhir-appliance
 fi
 
-echo "Done"
+echo "FHIR Appliance ${t} updated..."
 
