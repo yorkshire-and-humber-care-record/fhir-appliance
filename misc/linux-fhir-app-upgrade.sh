@@ -18,6 +18,21 @@
 # ./linux-fhir-app-upgrade.sh -t qs -d detached
 #
 #################################################################################################
+# Additional technical note
+#
+# The most important line in this script is:
+#   - "docker-compose pull" - to pull down the latest version of any other images in the docker-compose file
+#                             (importantly including the FHIR Appliance image)
+#
+# It is then necessary to restart any running containers to make sure they are using the latest images:
+#   - If the service is already stopped then there is nothing further to do, simply start it with "docker-compose up -d"
+#   - If the service is running then you could bounce it with "docker-compose down" followed by "docker-compose up -d"
+#   - However this script takes a more sophisticated approach and ASSUMING THE SERVICE IS ALREADY RUNNING it refreshes only
+#   - the relevant container with "docker-compose up --no-deps -d fhir-appliance"
+#
+# The rest of the script is peripheral code regarding command parameter parsing and navigating to the correct directory
+# It would be possible to adapt and create your own tailored script if preferred
+#################################################################################################
 #!/bin/bash
 
 usage() { echo "Usage: $0 [-t <string> - prod for production or qs for linux quickstart] [-d <string>, optional - restart the updated appliance in detached mode (docker-compose up -d) by setting -d detached]" 1>&2; exit 1; }
