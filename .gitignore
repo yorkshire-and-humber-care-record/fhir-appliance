@@ -99,6 +99,6 @@ dist
 # TernJS port file
 .tern-port
 
-#quickstart/windows/data/
+quickstart/windows/data/
 *.mdf
 *.ldf

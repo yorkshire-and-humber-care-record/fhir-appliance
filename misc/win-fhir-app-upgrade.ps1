@@ -39,7 +39,7 @@ else {
 
 Write-Host "Pulling latest images..."
 Write-Host "Pulling latest windows node server image..."
-Invoke-Expression "docker pull synaneticsltd/synfhir-windows-node:14.17.0"
+Invoke-Expression "docker pull synaneticsltd/synfhir-windows-node:latest"
 Write-Host "Latest windows node image pulled succesfully..."
 Write-Host "Pulling FHIR Appliance..."
 Invoke-Expression "docker-compose pull"
