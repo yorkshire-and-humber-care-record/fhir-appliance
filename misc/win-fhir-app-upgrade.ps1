@@ -17,7 +17,7 @@
 # ./win-fhir-app-upgrade.ps1 -target qs -detached true
 #
 #################################################################################################
-param ([string] $target, [string] $detached="false")
+param ([Parameter(Mandatory=$true)][string] $target, [Parameter(Mandatory=$false)][boolean] $detached=$false)
 
 Write-Host "Updating FHIR Appliance ${target}"
 
@@ -30,7 +30,7 @@ Set-Location ../$path
 Get-Location | Write-Host
 
 $cmd
-if($detached.ToLower() -eq "true") {
+if($detached -eq $true) {
     $cmd = "docker-compose up --no-deps -d fhir-appliance"
 }
 else {
@@ -38,6 +38,10 @@ else {
 }
 
 Write-Host "Pulling latest images..."
+Write-Host "Pulling latest windows node server image..."
+Invoke-Expression "docker pull synaneticsltd/synfhir-windows-node:14.17.0"
+Write-Host "Latest windows node image pulled succesfully..."
+Write-Host "Pulling FHIR Appliance..."
 Invoke-Expression "docker-compose pull"
 Write-Host "Updating FHIR Appliance ${path}"
 Invoke-Expression $cmd
