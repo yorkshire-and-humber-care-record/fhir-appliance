@@ -3,6 +3,19 @@ version: "3.2"
 # FHIR Appliance Quickstart for Windows containers
 
 services:
+  fhir-appliance-db:
+    image: synaneticsltd/synfhir-windows-mssql-win-2019:latest
+    container_name: fhir-appliance-db
+    hostname: localhost
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Pa55w0rd1! # Change as required (changes here need to be reflected in line 44 of .env)
+      - ATTACH_DBS=[{"dbName":"fhirstore","dbFiles":["C:\\SQLData\\fhirstore.mdf","C:\\SQLData\\fhirstore_log.ldf"]}]
+    ports:
+      - 1433:1433
+    volumes:
+      - .\data:C:\SQLData
+
   fhir-appliance:
     image: synaneticsltd/synfhir-store:windows-2019-beta-v3.1.0
     restart: always
