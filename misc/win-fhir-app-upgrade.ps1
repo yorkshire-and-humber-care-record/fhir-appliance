@@ -14,7 +14,7 @@
 # Optional
 # -d detached to launch the updated fhir-appliance in detached mode (docker-compose up -d), e.g.:
 #
-# ./win-fhir-app-upgrade.ps1 -target qs -detached true
+# ./win-fhir-app-upgrade.ps1 -target qs -detached $true
 #
 #################################################################################################
 # Additional technical note
