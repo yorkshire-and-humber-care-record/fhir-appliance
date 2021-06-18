@@ -70,13 +70,13 @@ the main install. Important points to note are:
 
 2.  ***Windows Containers, with MSSQL – ie on Windows Server 2019***
 
-    -   For Linux then the quickstart also bundles a containerised
-        postgres database along with the FHIR Appliance, all on the
+    -   The quickstart also bundles a containerised
+        database along with the FHIR Appliance, all on the
         same box. Note that this is not a best-practice for
         production, but enables a quick and easy demo deployment.
 
     -   The quickstart is pre-configured with the most common
-        server/database pairings, but note that other combinations are
+        server/database pairings (Linux-Postgress and Windows-MSSQL), but note that other combinations are
         possible if desired for your own deployments
 
 The good news is that, having completed the Server Preparation steps,
@@ -97,15 +97,12 @@ impatient to get going then the basic steps are:
 3.  Navigate to either the ***quickstart/linux*** or
     ***quickstart/windows*** directory
 
-4.  *(Windows only – install MSSQL, and update the .env file with the
-    connection string)*
+4.  Run ***docker-compose up***
 
-5.  Run ***docker-compose up***
-
-6.  Browse to ***<http://localhost:8300/fhir/stu3/metadata>*** to view
+5.  Browse to ***<http://localhost:8300/fhir/stu3/metadata>*** to view
     the Capability Statement from your new FHIR Server!
 
-7.  Review the configuration files to understand more about the options
+6.  Review the configuration files to understand more about the options
     available
 
 The rest of this paper walks through the process in more detail, with
@@ -144,11 +141,11 @@ Resources and the Audit trail.
 
 **On Windows Server:**
 
-There is not a suitable containerised option for Microsoft SQL Server,
-so this needs to be installed separately, along with an administration
-tool such as SQL Server Management Studio
+A containerised installation of SQl Server Express is bundled
 
 -   The database listens on port 1433.
+
+-   A client administration tool is NOT bundled, so if you do not already have it you will need to separately install a tool such as SQL Server Management Studio
 
 ## FHIR Appliance
 
@@ -388,29 +385,10 @@ Check that you have completed the necessary previous steps:
 
 -   Configuration files downloaded and inspected (see Section 3 above)
 
--   For Windows / MSSQL only – install and configure MSSQL
-
-Options might include:
-
-1.  Reusing an existing MSSQL test server which you have access to
-
-2.  Provisioning a cloud-hosted managed service
-
-3.  Installing MSSQL. For example a simple and free option if it is only
-    for demo purposes would be to install SQL Server Express on the same
-    box:
-    <https://www.microsoft.com/en-gb/sql-server/sql-server-downloads>
-
-    -   You will need to install and/or connect a SQL Server
+-   For Windows/MSSQL only then you may wish to install and/or connect a SQL Server
         administration tool (eg SQL Server Management Studio
         <https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms>)
 
-    -   It is necessary to create a new database and user on the server.
-        **See the “misc” folder of the download for a sql script to do
-        this**.
-
-> *NB: For Linux / Postgres then a containerised version of postgres is
-> bundled with the quickstart and so this step is not necessary*
 
 Once these preparations are complete then the benefit of docker is that
 the actual install itself is very simple:
