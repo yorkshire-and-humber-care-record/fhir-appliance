@@ -385,10 +385,6 @@ Check that you have completed the necessary previous steps:
 
 -   Configuration files downloaded and inspected (see Section 3 above)
 
--   For Windows/MSSQL only then you may wish to install and/or connect a SQL Server
-        administration tool (eg SQL Server Management Studio
-        <https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms>)
-
 
 Once these preparations are complete then the benefit of docker is that
 the actual install itself is very simple:
@@ -495,10 +491,10 @@ is something we will tackle as an exercise in its own right later***
 
 You should see a logon screen for the database client
 
-(As previously discussed, you will need to provide your own database
-client for windows)
-
 <img src="media/03/69ee33c5461d7935713aa975a2af94ba0b5e398e.png" style="width:4.90069in;height:2.43333in" />
+
+(As previously discussed, you will need to provide your own database
+client for Windows / MSSQL. For example you may wish to install and/or connect SQL Server Management Studio <https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms>)
 
 ***If you reach this point, then CONGRATULATIONS – your installation is
 successful!***
