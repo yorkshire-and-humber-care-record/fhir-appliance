@@ -496,6 +496,8 @@ You should see a logon screen for the database client
 (***_As previously discussed, you will need to provide your own database
 client for Windows / MSSQL_***. For example you may wish to install and/or connect SQL Server Management Studio <https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms>)
 
+
+
 ***If you reach this point, then CONGRATULATIONS – your installation is
 successful!***
 
