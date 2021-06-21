@@ -348,8 +348,8 @@ can be summarised as:
         the central servers. It is therefore switched off for this
         quickstart demo. We will return to it in a later document when
         considering a more complete / production deployment.
-
-    -   Other Settings – there are various other settings, eg relating
+        
+-   ***Other Settings*** – there are various other settings, eg relating
         to logging. These may be reviewed, but will usually be left at
         the defaults
 
