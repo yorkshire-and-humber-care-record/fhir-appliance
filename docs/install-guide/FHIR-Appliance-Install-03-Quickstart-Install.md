@@ -498,8 +498,7 @@ client for Windows / MSSQL_***. For example you may wish to install and/or conne
 
 
 
-***If you reach this point, then CONGRATULATIONS – your installation is
-successful!***
+# If you reach this point, then CONGRATULATIONS – your installation is successful!
 
 However we have so far only done some very simple smoke-tests. In the
 next document we will go back for a more detailed tour and to explore
