@@ -124,7 +124,7 @@ variants are essentially the same except for the choice of database:
 
 **<u>Windows Quickstart</u>**
 
-<img src="media/03/SqlQuickstart.png" style="width:5.64in;height:2.22in" />
+<img src="media/03/SqlQuickstart.png" style="width:4.51in;height:1.77in" />
 
 ## Database (Postgres or MSSQL)
 
