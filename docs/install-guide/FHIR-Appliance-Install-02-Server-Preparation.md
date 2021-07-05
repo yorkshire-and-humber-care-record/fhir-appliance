@@ -120,7 +120,7 @@ way. In the case of security policies, it is recommended to achieve a
 working server and then to add security configuration back in
 incrementally, testing at each step to ensure no detrimental effect.
 
-An example of a potential issue is antivirus, and anti-virus problems may become evident when Docker tries to extract images after it has finished downloading. Users will see the Docker process hang and, in some cases, CPU spikes. Further guidance is available from docker at https://docs.docker.com/engine/security/antivirus/ 
+An example of a potential issue is antivirus, and anti-virus problems may become evident when Docker tries to extract images after it has finished downloading. Users may see the Docker process hang and, in some cases, CPU spikes. Further guidance is available from docker at https://docs.docker.com/engine/security/antivirus/ 
 
 # Installing Docker
 
