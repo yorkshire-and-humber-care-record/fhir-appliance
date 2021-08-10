@@ -4,8 +4,6 @@ Twitter: [@YHCareRecord](https://twitter.com/YHCareRecord/)
 
 ---
 
-# This repo is currently under development
-
 # What is the FHIR Appliance?
 The FHIR Appliance is a FHIR server which was built by, and for, the [Yorkshire and Humber Care Record](https://yhcr.org). The work was carried out by the (YHCR) project team as part of their work with the [NHS England Local Health and Care Record Exampler](https://www.england.nhs.uk/publication/local-health-and-care-record-exemplars/) (LHCRE) programme. 
 
@@ -81,5 +79,7 @@ The following steps describe how to get the current version of the FHIR Applianc
 [Database initialisation](docs/reference/database-initalisation.md)
 
 [Creating self-signed certificates](docs/reference/self-signed-cert.md)
+
+[Using different image tags](docs/reference/image-tags.md)
 
 

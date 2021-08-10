@@ -4,9 +4,9 @@ version: "3.2"
 
 services:
   fhir-appliance:
-    image: synaneticsltd/synfhir-store:linux-beta-v3.1.0
+    image: synaneticsltd/synfhir-store:linux-latest
     # For windows 2019
-    # image: synaneticsltd/synfhir-store:windows-2019-beta-v3.1.0
+    # image: synaneticsltd/synfhir-store:windows-2019-latest
     restart: always
     container_name: fhir-appliance
     environment:

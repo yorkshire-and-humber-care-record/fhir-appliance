@@ -39,7 +39,7 @@ services:
       - default
 
   fhir-appliance:
-    image: synaneticsltd/synfhir-store:linux-beta-v3.1.0
+    image: synaneticsltd/synfhir-store:linux-latest
     restart: always
     container_name: fhir-appliance
     environment:
