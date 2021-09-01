@@ -13,11 +13,15 @@ By default, each of the `docker-compose.yml` files are configured to pull `synan
 5. Save the change.
 6. Run the FHIR Appliance by entering `docker-compose up -d`
 
+> Images tagged with alpha, beta or rc should not be used in production/live environments as they may contain breaking changes.
+
 ### Available Versions
 
 | Container Type/OS | Tag |
 | :----------------- | :--- |
 | Linux             | synaneticsltd/synfhir-store:linux-latest |
 | Linux             | synaneticsltd/synfhir-store:linux-v3.1.3 |
+| Linux             | synaneticsltd/synfhir-store:linux-beta-v3.1.4 |
 | Windows             | synaneticsltd/synfhir-store:windows-2019-latest |
 | Windows             | synaneticsltd/synfhir-store:windows-2019-v3.1.3 |
+| Windows             | synaneticsltd/synfhir-store:windows-2019-beta-v3.1.4 |
