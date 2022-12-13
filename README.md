@@ -1,15 +1,15 @@
-# Yorkshire and Humber FHIR Appliance
-Web: [Yorkshire and Humber Care Record](https://yhcr.org)  
+# Interweave Connect
+Web: [Interweave Digital](https://www.interweavedigital.com)  
 Twitter: [@YHCareRecord](https://twitter.com/YHCareRecord/)
 
 ---
 
-# What is the FHIR Appliance?
-The FHIR Appliance is a FHIR server which was built by, and for, the [Yorkshire and Humber Care Record](https://yhcr.org). The work was carried out by the (YHCR) project team as part of their work with the [NHS England Local Health and Care Record Exampler](https://www.england.nhs.uk/publication/local-health-and-care-record-exemplars/) (LHCRE) programme. 
+# What is Interweave Connect?
+Interweave Connect (also known as the "FHIR Appliance") is a FHIR server which was built by, and for, the [Interweave platform](https://interweavedigital.com).  
 
-The FHIR Appliance has been developed in accordance to a series of [technical papers](https://yhcr.org/downloads/) produced by the [YHCR](https://yhcr.org). Each design paper describes a set of "model" software components and architectures that, when realised, can enable health and social care organisations to share data using [FHIR](https://www.hl7.org/fhir/STU3/). 
+The software has been developed in accordance to a series of [technical papers](https://www.interweavedigital.com/customer-support/technical/) produced by the programme. Each design paper describes a set of "model" software components and architectures that, when realised, can enable health and social care organisations to share data using [FHIR](https://www.hl7.org/fhir/STU3/). 
 
-The FHIR Appliance will keep evolving in step with both the LHCRE, YHCR and other NHS regional shared care record programmes. The overall aim, however, is that the server will provide an out of the box, open source solution to health and social care organisations who require the ability to share data using FHIR.
+Interweave Connect will keep evolving in step with both the LHCRE, YHCR and other NHS regional shared care record programmes. The overall aim, however, is that the server will provide an out of the box, open source solution to health and social care organisations who require the ability to share data using FHIR.
 
 
 # Key Features
@@ -29,7 +29,7 @@ The FHIR Appliance will keep evolving in step with both the LHCRE, YHCR and othe
 
 # Technical Overview
 
-The FHIR Appliance has been developed using a stack of open source software and health care interoperability standards, namely:
+Interweave Connect has been developed using a stack of open source software and health care interoperability standards, namely:
 
 [Fast Healthcare Interoperable Resources - FHIR](https://fhir.hl7.org.uk)
 Fast Healthcare Interoperability Resources is a standard describing data formats and elements and an application programming interface for exchanging electronic health records. The standard was created by the Health Level Seven International health-care standards organization.
@@ -59,7 +59,7 @@ A public git repository containing the sourcecode will be available soon but for
 
 
 ### Install guides
-The following steps describe how to get the current version of the FHIR Appliance up and running within your local environment. 
+The following steps describe how to get the current version of Interweave Connect up and running within your local environment. 
 
 [01 - Overview](/docs/install-guide/FHIR-Appliance-Install-01-Overview.md)
 
