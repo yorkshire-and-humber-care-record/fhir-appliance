@@ -247,7 +247,7 @@ tables. You will see that the audit records are also FHIR Resources
 
 Please refer to the Design Paper 09 for a full specification of how
 audit works:
-<https://yhcr.org/wp-content/uploads/2019/05/YHCR_Design_Paper_009.__Auditing.docx>
+<https://www.interweavedigital.com/wp-content/uploads/2022/06/Interweave-Design-Paper-009-Auditing-v1.2.pdf>
 
 # Using the Secured API
 
@@ -311,7 +311,7 @@ Operation Outcome returned from the FHIR Appliance itself:
 To get through this second security layer we need to supply a JWT token
 as part of our FHIR request. Full details of the contents of this token
 are provided in the Design Paper 05:
-<https://yhcr.org/wp-content/uploads/2020/11/YHCR_Design_Paper_005__Identity_and_Access_Management_v1.1.docx>
+<https://www.interweavedigital.com/wp-content/uploads/2022/06/Interweave-Design-Paper-005-Identity-and-Access-Management-v1.3.pdf>
 
 As the Design Paper explains there are a number of fields. Most of these
 have to be populated with values issued during the Onboarding process,
