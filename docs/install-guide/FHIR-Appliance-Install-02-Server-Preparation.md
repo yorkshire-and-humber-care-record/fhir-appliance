@@ -181,12 +181,8 @@ And finally, test your installation:
 
 ## Windows Server
 
-In summary the installation process again involves connecting to a
-repository and pulling down the Docker packages. The author’s experience
-is that this also a fairly straightforward process.
-
-It is however important to understand that you are installing Docker
-Enterprise Edition for “Windows Containers”. This requires Docker images
+It is important to understand that you are installing Docker
+for “Windows Containers”. This requires Docker images
 that have been specially prepared for the correct Windows operating
 system. These Windows Container images are provided as part of the
 installation for the FHIR Appliance itself. Availability of Windows
@@ -194,44 +190,29 @@ Container images from other 3<sup>rd</sup> parties varies. (For example
 as of this writing there is not a Windows Container version of Postgres
 available).
 
-Note that a full implementation of native Linux containers is promised
-by Microsoft for Windows Server 2019. This is currently in preview, for
-example see
-<https://bcthomas.com/2019/02/getting-started-with-linux-containers-on-windows-server-2019/>
-The author’s (frustrating!) experience is that as of this writing in
-February 2021 it does not work properly. However it is certainly an area
-worth watching in future – as it would remove the above dependency on
-specially prepared Windows Containers.
-
-Full instructions for the Docker Enterprise Edition install on Windows
-Server are available here:
+Full instructions for installing docker on Windows Server are available here:
 <https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-Server>
-The steps are:
+These tend to change from time-to-time, but have recently been simplified and docker can now be installed with a single command:
 
 1.  Open PowerShell in elevated/administrator mode
 
-2.  Update the TLS version so that the server can access the
-    PSRepository: ***\[Net.ServicePointManager\]::SecurityProtocol =
-    \[Net.SecurityProtocolType\]::Tls12***
+2.  In Powershell run
+  ***Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/Windows-Containers/Main/helpful_tools/Install-DockerCE/install-docker-ce.ps1" -o   install-docker-ce.ps1
+  .\install-docker-ce.ps1***
+  
+(Note that this install will force a reboot as part of the process)
 
-3.  Install the docker PowerShell module. This automates various aspects
-    of the install, including enabling necessary server features:
-    ***Install-Module -Name DockerMsftProvider -Repository PSGallery***
-
-4.  Install the docker package: ***Install-Package -Name docker
-    -ProviderName DockerMsftProvider***
-
-> *Note that these commands will raise a number of prompts, and you will
-> need to select “Y”es or “A”ccept All to continue*
-
-5.  ***Restart the server***
 
 You will also need to install Docker Compose:
 
-1.  In PowerShell run: ***Invoke-WebRequest
+1.  Create a folder for the install eg C:\Program Files\Docker, and add it to the PATH (eg %ProgramFiles%\Docker)
+
+2.  In PowerShell run: ***Invoke-WebRequest
     "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-Windows-x86_64.exe"
     -UseBasicParsing -OutFile
     $Env:ProgramFiles\\Docker\\docker-compose.exe***
+
+3. Reboot the server
 
 And finally, test your installation:
 
