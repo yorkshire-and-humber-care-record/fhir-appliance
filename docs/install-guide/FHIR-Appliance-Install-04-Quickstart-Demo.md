@@ -127,7 +127,7 @@ intuitive so you should be able to follow along.
 
 A demonstration Postman Collection is available here:
 
-<https://github.com/synanetics/synfhir-store/blob/master/docs/postman.md>
+<https://github.com/yorkshire-and-humber-care-record/fhir-appliance/tree/master/misc>
 
 If it is the first time you have used Postman then you will need to sign
 up for a free account. And then select “Postman for Web”.
