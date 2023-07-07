@@ -4,13 +4,15 @@ version: "3.2"
 
 services:
   fhir-appliance-db:
-    image: synaneticsltd/synfhir-windows-mssql-win-2019:latest
+    build:
+      context: .\sql
+      dockerfile: Dockerfile
     container_name: fhir-appliance-db
     hostname: localhost
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=Pa55w0rd1! # Change as required (changes here need to be reflected in line 44 of .env)
-      - ATTACH_DBS=[{"dbName":"fhirstore","dbFiles":["C:\\SQLData\\fhirstore.mdf","C:\\SQLData\\fhirstore_log.ldf"]}]
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Pa55w0rd1!
+      MSSQL_PID: Developer
     ports:
       - 1433:1433
     volumes:
