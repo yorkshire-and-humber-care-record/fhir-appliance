@@ -24,11 +24,11 @@
 
 [3.2 Configure IIS as a Reverse Proxy or Server Farm](#configure-iis-as-a-reverse-proxy-or-server-farm)
 
-[3.3 Configure SSL: https](#configure-ssl:-https)
+[3.3 Configure SSL for https](#configure-ssl-for-https)
 
-[3.4 Configure TLS Mutual Authentication Part 1: Basics](#configure-tls-mutual-authentication-part-1:-Basics)
+[3.4 Configure TLS Mutual Authentication Part 1 Basics](#configure-tls-mutual-authentication-part-1-basics)
 
-[3.5 Configure TLS Mutual Authentication Part 2: Authenticated User Mapping)](#configure-tls-mutual-authentication-part-2:-authenticated-user-mapping)
+[3.5 Configure TLS Mutual Authentication Part 2 Authenticated User Mapping)](#configure-tls-mutual-authentication-part-2-authenticated-user-mapping)
 
 [3.6 Configure IIS Server Farm Health Test](#configure-iis-server-farm-health-test)
 
@@ -351,6 +351,7 @@ against the hostname in the configured URL, and will error on a
 mismatch.
 
     >Note: if you do decide to use https for this backend link, then this is *your* https, and will need to be configured on the FHIR Appliance using your own internal server certificates (ie NOT using the Interweave certificates)
+    
     > If you decide to use http (not https) for this backend link, then you may need to reconfigure your FHIR Appliance to disable its https features.
 
 **Review additional server farm settings**
@@ -391,7 +392,7 @@ configure server affinity
 
     Healthchecks can also be configured for a server farm, although there may be some complications. See separate section later.
 
-## Configure SSL: https
+## Configure SSL for https
 
 At this point IIS is working as a proxy, but everything is still over http. So the next task is to add an SSL certificate to secure traffic over https.
 
@@ -461,7 +462,7 @@ Traffic to the website is now secured using SSL based on the relevant Interweave
 <https://techexpert.tips/iis/enable-https-iis/>
 
 
-## Configure TLS Mutual Authentication Part 1: Basics
+## Configure TLS Mutual Authentication Part 1 Basics
 
 The next step is to lock things down further by requiring a client certificate to be presented for TLS mutual authentication.
 
@@ -500,13 +501,13 @@ The next step is to lock things down further by requiring a client certificate t
     - This should work fine, as this check from Interweave presents all of the correct certificates
     - Furthermore, review the warnings at the bottom of the Interweave healthcheck screen. There should no longer be an issue reported about accepting a self-signed certificate - ie we have locked things down to require a proper trusted certificate.
 
-***Interweave Healthcheck, indicating that a self-signed certificate is accepted - therefore TLS MA not configured***
+***Interweave Console Healthcheck, indicating that a self-signed certificate is accepted - therefore TLS MA not configured***
 <img src="media/99/SelfSignedCertWarning.png" style="width:5.35347in;height:3.35347in" />
 
-***Interweave Healthcheck, with this issue resolved once TLS MA configuration is in place***
+***Interweave Console Healthcheck, with this issue resolved once TLS MA configuration is in place***
 <img src="media/99/SelfSignedCertFixed.png" style="width:5.35347in;height:3.35347in" />
  
- ## Configure TLS Mutual Authentication Part 2: Authenticated User Mapping
+ ## Configure TLS Mutual Authentication Part 2 Authenticated User Mapping
 
 The above configuration of mutual authentication is OK up to a point, but there are still some issues - due to IIS's approach to configuring mutual authentication.
 
@@ -547,10 +548,13 @@ certificate.
     - matchCriteria = ca.sandpit.yhcr.nhs.uk
      > *NB: The actual name of the CN will obviously vary slightly. If in doubt then look at the CA Root Certificate that you imported in the previous steps.*
 
+*First step of configuring certificate authentication mapping*
 <img src="media/99/ConfigEditor1.png" style="width:5.35347in;height:3.35347in" />
 
+*Drill into "manyToOneMappings" for the second step*
 <img src="media/99/ConfigEditor2.png" style="width:5.35347in;height:3.35347in" />
 
+*Drill into "rules" for the final step*
 <img src="media/99/ConfigEditor2.png" style="width:5.35347in;height:3.35347in" />
 
 3.  **Lock down the site to authenticated users only**
