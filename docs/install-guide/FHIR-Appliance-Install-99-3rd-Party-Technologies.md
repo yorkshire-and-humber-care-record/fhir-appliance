@@ -24,11 +24,11 @@
 
 [3.2 Configure IIS as a Reverse Proxy or Server Farm](#configure-iis-as-a-reverse-proxy-or-server-farm)
 
-[3.3 Configure SSL (https)](#configure-ssl-(https))
+[3.3 Configure SSL: https](#configure-ssl:-https)
 
-[3.4 Configure TLS Mutual Authentication (Part 1: Basics)](#configure-tls-mutual-authentication-(part-1:-Basics))
+[3.4 Configure TLS Mutual Authentication Part 1: Basics](#configure-tls-mutual-authentication-part-1:-Basics)
 
-[3.5 Configure TLS Mutual Authentication (Part 2: Authenticated User Mapping)](#configure-tls-mutual-authentication-(part-2:-authenticated-user-mapping))
+[3.5 Configure TLS Mutual Authentication Part 2: Authenticated User Mapping)](#configure-tls-mutual-authentication-part-2:-authenticated-user-mapping)
 
 [3.6 Configure IIS Server Farm Health Test](#configure-iis-server-farm-health-test)
 
@@ -391,7 +391,7 @@ configure server affinity
 
     Healthchecks can also be configured for a server farm, although there may be some complications. See separate section later.
 
-## Configure SSL (https)
+## Configure SSL: https
 
 At this point IIS is working as a proxy, but everything is still over http. So the next task is to add an SSL certificate to secure traffic over https.
 
@@ -461,7 +461,7 @@ Traffic to the website is now secured using SSL based on the relevant Interweave
 <https://techexpert.tips/iis/enable-https-iis/>
 
 
-## Configure TLS Mutual Authentication (Part 1: Basics)
+## Configure TLS Mutual Authentication Part 1: Basics
 
 The next step is to lock things down further by requiring a client certificate to be presented for TLS mutual authentication.
 
@@ -493,12 +493,20 @@ The next step is to lock things down further by requiring a client certificate t
 3. **Test that it works**
 -  Browse to <https://localhost/fhir/stu3/metadata> 
  - Now you should no longer see the "good" error message (operation outcome) from the FHIR Appliance. Instead you will see a "bad" error message from IIS saying "forbidden" due to not presenting a client certificate. This is as expected, proving that the mutual authentiction is working
+
+<img src="media/99/ForbiddenCert.png" style="width:5.35347in;height:3.35347in" />
+
 -  Run an end-to-end test using Interweave Console's "healthcheck" option under the Data Provider menu.
     - This should work fine, as this check from Interweave presents all of the correct certificates
     - Furthermore, review the warnings at the bottom of the Interweave healthcheck screen. There should no longer be an issue reported about accepting a self-signed certificate - ie we have locked things down to require a proper trusted certificate.
 
+***Interweave Healthcheck, indicating that a self-signed certificate is accepted - therefore TLS MA not configured***
+<img src="media/99/SelfSignedCertWarning.png" style="width:5.35347in;height:3.35347in" />
+
+***Interweave Healthcheck, with this issue resolved once TLS MA configuration is in place***
+<img src="media/99/SelfSignedCertFixed.png" style="width:5.35347in;height:3.35347in" />
  
- ## Configure TLS Mutual Authentication (Part 2: Authenticated User Mapping)
+ ## Configure TLS Mutual Authentication Part 2: Authenticated User Mapping
 
 The above configuration of mutual authentication is OK up to a point, but there are still some issues - due to IIS's approach to configuring mutual authentication.
 
