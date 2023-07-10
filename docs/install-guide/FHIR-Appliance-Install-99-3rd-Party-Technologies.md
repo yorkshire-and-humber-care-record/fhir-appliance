@@ -26,7 +26,7 @@
 
 [3.3 Configure SSL (https)](#configure-ssl-(https))
 
-[3.4 Configure TLS Mutual Authentication (Part 1 - Basics)](#configure-tls-mutual-authentication-(part-1:-Basics))
+[3.4 Configure TLS Mutual Authentication (Part 1: Basics)](#configure-tls-mutual-authentication-(part-1:-Basics))
 
 [3.5 Configure TLS Mutual Authentication (Part 2: Authenticated User Mapping)](#configure-tls-mutual-authentication-(part-2:-authenticated-user-mapping))
 
@@ -283,6 +283,7 @@ own knowledge of IIS and of your local infrastructure and policies if you are pl
 -   In a browser on the IIS Server, browse directly to <http://xxxxxxx/fhir/stu3/metadata> - where "xxxxxxx" is the internal server name (or IP address) of your FHIR Appliance. You should see an Operation Outcome error message from the FHIR Appliance - but thus proving that firewalls etc do indeed allow you to "see" the FHIR Appliance from the IIS server. 
  > This Operation Outcome should be considered a "good" error message as far as these IIS connectivity tests are concerned. It is a FHIR Operation Outcome saying "no token". This indicates that you are sucessfully reaching the FHIR Appliance and your request is being processed - albeit rejected due to there being no JWT token in the (empty) request message.
 
+<img src="media/99/OperationOutcome.png" style="width:6.26736in;height:2.29375in" />
 
 *Note: Before continuing it is also worth noting that in IIS many settings
 are per “Site”. Therefore if the IIS server is shared with other
