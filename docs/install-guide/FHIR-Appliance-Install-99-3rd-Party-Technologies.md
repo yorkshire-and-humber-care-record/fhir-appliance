@@ -555,7 +555,7 @@ certificate.
 <img src="media/99/ConfigEditor2.png" style="width:5.35347in;height:3.35347in" />
 
 *Drill into "rules" for the final step*
-<img src="media/99/ConfigEditor2.png" style="width:5.35347in;height:3.35347in" />
+<img src="media/99/ConfigEditor3.png" style="width:5.35347in;height:3.35347in" />
 
 3.  **Lock down the site to authenticated users only**
 
