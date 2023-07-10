@@ -603,7 +603,7 @@ This can be used to configure a health test
 does not appear to offer a way to direct healthchecks at specific
 “backend” servers.***
 
-<img src="media/99/IISHealthcheck5.png" style="width:3.58681in;height:4.32014in" />
+<img src="media/99/IISHealthcheck.png" style="width:3.58681in;height:4.32014in" />
 
 Notice that there is also an option for a “Live Traffic Test”, however
 this is more problematic. The FHIR Appliance currently seems to be quite
